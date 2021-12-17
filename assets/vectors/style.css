@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    background-color: #ffead4;
+    overflow-x: hidden;
+}
+
+.container-cards{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-esq, .card-dir{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    background-color: rgb(250, 247, 244);
+    border-radius: 10px;
+    padding: 20px;
+
+   
+}
+
+
+#coqueiro, #filtro{
+    height:200px;
+  
+}
+
+
+
+h1, h2{
+    font-family: 'Pacifico', cursive;
+    color: #be253f;
+    text-align: center;
+}
+
+h1{
+    font-size: 3em ;
+}
+
+h2{
+    font-size: 1.5em;
+}
+
+
+
+p{
+    font-family: 'Lato', sans-serif;
+    color: #484848;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.container-header{
+    width: 100vw;
+    height: 700px;
+    
+}
+
+.lett-footer{
+    width: 60%;
+    fill: #fff;
+    opacity: 0.8;
+    position: absolute;
+    left: 50%;
+    bottom: 25%;
+    transform: translate(-50%);
+    
+}
+
+.container-footer{
+    position: relative;
+    margin-top: 30px;
+    
+    
+}
+
+.lett-header{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 75%;
+    margin-top: 10%;
+    /*deixando o texto tranparente para depois fazelo aparecer*/
+    fill: transparent;/*começa transparente depois de 0.5s começa a animação abaixo*/
+    /* (tempo) (comeca e termina calma) (ao terminar a nimacao pare)(demore 2s para iniciar) */
+    animation: lett-preenchimento 0.5s ease-in-out forwards 2.8s;
+    
+}
+
+@keyframes lett-preenchimento{
+    to {
+        fill: #be253f
+    }
+}
+
+
+/* dentro do svg pegue todos os path(que são os desenhos das letras)*/
+.lett-header path {
+    /*LARGURA DA BORDA */
+    stroke-width: 2px;
+    /*cria borda*/
+    stroke: #be253f;
+    /*tamanho do tracejao da borda*/
+    stroke-dasharray: 1300;
+    /*tamanho do espaço entre tracejado*/
+    stroke-dashoffset: 1300;
+    /*chama a animação que começacom o tracajado tamanho 0*/
+    animation: lett-tracado 2.5s ease-in-out forwards 1s;
+   
+
+}
+
+@keyframes lett-tracado{
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@media screen and (max-width:600px){
+    .container-header{
+        width: 100vw;
+        height: 250px;
+        
+    }
+
+    .card-esq, .card-dir{
+       
+        width: 40%;
+        
+        padding: 9px;
+    
+       
+    }
+
+    #coqueiro, #filtro{
+        height:50px;
+      
+    }
+
+    h1{
+        font-size: 1.5em ;
+    }
+
+    h2{
+        font-size: .9em;
+        margin-bottom: 1rem;
+    }
+    
+    
+    
+    p{
+        margin-top: 0;
+        font-size: .8em;
+        text-align: justify;
+       
+    }
+
+
+   
+    
+}
